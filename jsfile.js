@@ -2,31 +2,56 @@
 
 const button =document.querySelector(`.button`);
 const container=document.querySelector(`.container`);
+const input=document.querySelector(`input`);
+const title=document.querySelectorAll(`span`)
+const error=document.querySelector(`.error`)
+
 container.style.display=`flex`;
 container.style.padding=`5px`;
 container.style.justifyContent=`center`
 //container.style.border=`2px solid green`
 
 
+
+
+function randomColor(){
+    const array = [0,1,2,3,4,5,6,7,8,9,`A`,`B`,`C`,`D`,`E`,`F`];
+    let background = ``;
+    for(let i=0; i<6; i++){
+        background = background + array[Math.floor(Math.random()*16)];
+    }
+    return `#${background}`
+}
+
+title.forEach(function(item){
+    item.style.color=randomColor()
+    setInterval(function(){
+        item.style.color = randomColor();    
+    },1500) 
+})
+
+
 button.addEventListener(`click`,function(){
     
-    let number = prompt `choose number between 0 and 99 to create a grid`
-    console.log(typeof(number))
-    
-    if(number>=100 || number < 0){
-        alert  `Number must be between 0 and 99`  
-        return; 
+    if(input.value>30 || input.value <= 0){
+        container.textContent = ``
+        error.textContent = `Number must be between 1 and 30`  
+        return;
     }
 
-    if(number==false){
-        alert  `Please enter a number`
+    if(isNaN(input.value)){
+        container.textContent = ``
+        error.textContent = `Please enter a number`
         return;    
     }
 
     container.textContent = ``
 
+    if(input.value<=30 || input.value > 0){
 
-    for(x=1; x<=number; x++){
+     error.textContent = ``
+    
+    for(x=1; x<=input.value; x++){
         const row = document.createElement(`div`);
         // row.classList.add(`row`);
         // row.textContent = x + `i`;
@@ -37,27 +62,21 @@ button.addEventListener(`click`,function(){
         // row.style.marginBottom=`1rem`
         container.appendChild(row);
         
-        for(y=0; y<number; y++){
+        for(y=0; y<input.value; y++){
             const column = document.createElement(`div`);
             column.classList.add(`column`)
             // column.textContent = y + `i`;
-            column.style.width=`${400/number}px`
-            column.style.height= `${400/number}px`
+            column.style.width=`${400/input.value}px`
+            column.style.height= `${400/input.value}px`
             column.style.margin=`0.2rem 0.2rem 0 0`
-            column.style.border =`1px solid blue`
+            column.style.border =`1px solid #F8F6F0`
+            column.style.borderRadius=`15%`
             //column.setAttribute(`style`,`width:30px;height:30px;margin:0.2rem 0.2rem;border :1px solid blue`)
             row.appendChild(column)
 
 
 
-            function randomColor(){
-                const array = [0,1,2,3,4,5,6,7,8,9,`A`,`B`,`C`,`D`,`E`,`F`];
-                let background = ``;
-                for(let i=0; i<6; i++){
-                    background = background + array[Math.floor(Math.random()*16)];
-                }
-                return `#${background}`
-            }
+          
             //let color = randomColor();
 
             //column.style.borderColor= randomColor();
@@ -78,6 +97,7 @@ button.addEventListener(`click`,function(){
             column.addEventListener(`mouseenter`,(event)=>{
                 event.target.style.opacity = opac;
                 event.target.style.backgroundColor = randomColor();
+               
                 setTimeout(function(){
                     event.target.style.backgroundColor = ``;
                     event.target.style.opacity=``;
@@ -90,7 +110,7 @@ button.addEventListener(`click`,function(){
         }
     }
     
-
+    }
 
 }); 
 
