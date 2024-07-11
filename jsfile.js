@@ -31,8 +31,29 @@ title.forEach(function(item){
 })
 
 
+input.addEventListener(`keyup`,function(enter){
+    if (enter.key === `Enter`){
+        button.click();
+    }
+    
+})
+
 button.addEventListener(`click`,function(){
     
+    button.style.background = `#1589FF`;
+    button.style.transform = `translateY(2.5px)`
+    button.style.border = `0.2rem solid #0059FF`;
+    button.style.boxShadow =`0px 0.1rem #00BFFF`;
+    button.style.transition = `0.6s`;
+    setTimeout(function(){
+        button.style.transform = `translateY(-2.5px)`
+        button.style.background = `#08A04B`;
+        button.style.border = `0.2rem solid #27742C`;
+        button.style.boxShadow =`0px 0.4rem #4CC417`;
+        button.style.transition = `0.6s`;
+    },600)
+
+
     if(input.value>30 || input.value <= 0){
         container.textContent = ``
         error.textContent = `Number must be between 1 and 30`  

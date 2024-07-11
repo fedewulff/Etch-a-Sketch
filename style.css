@@ -11,18 +11,25 @@ h1{
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     font-size: 5.5rem;
+    transform: translate(-2rem);
     /* -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgb(238, 237, 221); */
 }
-#l1{
-    transform: translate(20px,20px);
-}
-#l5{
-   margin-right: 5rem;
-}
+#l1{transform: translate(0,10rem) rotate(-35deg);}
+#l2{transform: translate(0,6rem) rotate(-28deg);}
+#l3{transform: translate(0,3rem) rotate(-20deg);}
+#l4{transform: translate(0,1.1rem) rotate(-13deg);}
+#l5{margin-right: 5rem; transform:rotate(-7deg)}
+#l7{transform: translate(0,0rem) rotate(5deg);}
+#l8{transform: translate(0,1.1rem) rotate(15deg);}
+#l9{transform: translate(0,3.4rem) rotate(24deg);}
+#l10{transform: translate(0,6.8rem) rotate(30deg);}
+#l11{transform: translate(0,10.5rem) rotate(34deg);}
+
 
 span{
     margin-left: 1.5rem;
+    display: inline-block;
 }
 
 .container1 {
@@ -63,6 +70,12 @@ input:focus{
     caret-shape: block;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
 button{
     color: white;
     font-weight: bold;
@@ -77,19 +90,15 @@ button{
 }
 
 
-button:hover{
-    background-color: #FF4500;
-    border: 0.2rem solid #E42217;
-    box-shadow: 0px 0.4rem #fd664b;
-    transition: 1s;
-}
-button:focus{
+
+
+/* button:active{
     background-color: #1589FF;
     border: 0.2rem solid #0059FF;
     box-shadow: 0px 0.1rem #00BFFF;
     transform: translate(0,0.33rem);
-    transition: 1s;
-}
+    transition: 0.1s linear;
+} */
 
 .choose{
     color:#FFFFF4;
