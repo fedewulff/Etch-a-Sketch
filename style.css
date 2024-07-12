@@ -1,3 +1,12 @@
+@media (-webkit-device-pixel-ratio: 1.25) {
+    * {zoom: 0.95;}
+}
+@media (-webkit-device-pixel-ratio: 1.5) {
+    * {zoom: 0.9;}
+}
+
+
+
 body{
     background: #0C090A;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
